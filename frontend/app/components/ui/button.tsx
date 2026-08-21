@@ -36,17 +36,52 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, isLoading, children, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button';
+    const classNames = cn(buttonVariants({ variant, size, className }));
+
+    if (asChild) {
+      // Ensure Slot receives a single React element child. If `children` is
+      // a valid React element, clone it to inject className, loader and
+      // disabled props so Slot only sees one child. Otherwise wrap children
+      // in a span.
+      if (React.isValidElement(children)) {
+        const child = React.cloneElement(
+          children as React.ReactElement,
+          {
+            className: cn(classNames, (children as any).props?.className),
+            disabled: isLoading || (props as any).disabled,
+            ref: ref,
+            ...props,
+          },
+          <>
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {(children as any).props?.children}
+          </>
+        );
+
+        return <Slot>{child}</Slot>;
+      }
+
+      // Fallback: wrap non-element children so Slot still gets a single child
+      return (
+        <Slot>
+          <button className={classNames} ref={ref} disabled={isLoading || props.disabled} {...props}>
+            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {children}
+          </button>
+        </Slot>
+      );
+    }
+
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+      <button
+        className={classNames}
         ref={ref}
         disabled={isLoading || props.disabled}
         {...props}
       >
         {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
         {children}
-      </Comp>
+      </button>
     );
   }
 );
