@@ -1,32 +1,32 @@
 BASE_FREQUENCY_LAMBDA0 = 0.0841
-PARTIAL_REPAIR_M_PARTIAL = 4425.00
+PARTIAL_REPAIR_M_PARTIAL = 5200.00
 TOTAL_LOSS_PROB_P_TL = 0.0180
-RISK_MARGIN = 0.1500
+RISK_MARGIN = 0.2000
 POLICY_ADMIN_FEE = 50.00
 AUDITED_UW_DENOMINATOR = 0.4190
 
 POWER_RELATIVITIES = {
-    "1. Urban / Commuter (<150 kW)": 1.1612,
-    "2. Mid-Range Performance (150-250 kW)": 1.2880,
-    "3. High-Performance AWD (>250 kW)": 1.4232
+    "1. Urban / Commuter (<150 kW)": 1.1938,
+    "2. Mid-Range Performance (150-250 kW)": 1.2969,
+    "3. High-Performance AWD (>250 kW)": 1.3673
 }
 
 DRIVER_AGE_RELATIVITIES = {
-    "1. 18-24 years": 1.0000,
-    "2. 25-30 years": 0.5477,
-    "3. 31-40 years": 0.4596,
-    "4. 41-50 years": 0.5375,
-    "5. 51-60 years": 0.4874,
-    "6. 61-75 years": 0.4781,
-    "7. 76+ years": 0.5255
+    "1. 18-24 years": 2.1891,
+    "2. 25-30 years": 1.1942,
+    "3. 31-40 years": 1.0000,
+    "4. 41-50 years": 1.1591,
+    "5. 51-60 years": 1.0543,
+    "6. 61-75 years": 1.0306,
+    "7. 76+ years": 1.1239
 }
 
 VEHICLE_AGE_RELATIVITIES = {
     "1. 0-1 years": 1.0000,
-    "2. 2-3 years": 0.5909,
-    "3. 4-6 years": 0.6247,
-    "4. 7-10 years": 0.6241,
-    "5. 11+ years": 0.5104
+    "2. 2-3 years": 0.5718,
+    "3. 4-6 years": 0.6253,
+    "4. 7-10 years": 0.6394,
+    "5. 11+ years": 0.5273
 }
 
 ADAS_RELATIVITIES = {
@@ -35,9 +35,10 @@ ADAS_RELATIVITIES = {
 }
 
 BRAND_RELATIVITIES = {
-    "1. Mass Market / Standard (BYD, Chery, GWM, Neta, MG)": 1.0000,
-    "2. Premium / Mid-Tier (Tesla, Hyundai, Smart)": 1.0500,
-    "3. Continental Luxury / Sport (Porsche, BMW, Mercedes)": 1.1500
+    "1. Mass Market / Domestic (BYD, Chery, Proton, GWM, Neta, MG)": 1.0000,
+    "2. Asian Mid-Tier (Hyundai, Kia, Mazda)": 1.1664,
+    "3. Tech Premium & New Luxury (Tesla, Volvo, Zeekr, XPeng, Lotus)": 1.6167,
+    "4. Continental Luxury & Sport (Audi, BMW, Mercedes, Porsche, MINI, smart)": 1.7922
 }
 
 BATTERY_CAPACITY_RELATIVITIES = {
@@ -55,10 +56,10 @@ FLOOD_TERRITORY_RELATIVITIES = {
 }
 
 GROUND_CLEARANCE_MULTIPLIERS = {
-    "1. Sports Car / Low EV (<140mm)": 1.0500,
-    "2. Sedan / Hatchback (140-170mm)": 1.0000,
-    "3. Minivan / Crossover (175-190mm)": 0.9600,
-    "4. SUV / Off-Roader (>190mm)": 0.8600
+    "1. Sports Car / Ultra-Low EV (<=127mm)": 1.0500,
+    "2. Sedan (Baseline) (128-149mm)": 1.0000,
+    "3. Minivan / MPV (150-169mm)": 0.9600,
+    "4. SUV / Off-Roader (>=170mm)": 0.8600
 }
 
 BATTERY_SOH_RELATIVITIES = {
