@@ -8,8 +8,8 @@ def get_valid_payload():
         "sum_insured": 100000,
         "power_cat": "1. Urban / Commuter (<150 kW)",
         "capacity_cat": "1. Standard Pack (<60 kWh)",
-        "clearance_cat": "2. Sedan / Hatchback (140-170mm)",
-        "brand_cat": "1. Mass Market / Standard (BYD, Chery, GWM, Neta, MG)",
+        "clearance_cat": "2. Sedan (Baseline) (128-149mm)",
+        "brand_cat": "1. Mass Market / Domestic (BYD, Chery, Proton, GWM, Neta, MG)",
         "adas_cat": "1. Standard / Level 0-1 (No Active AEB)",
         "age_cat": "1. 18-24 years",
         "ncd_str": "0%",
@@ -54,3 +54,32 @@ def test_basic_mode_ncd_shield():
     assert res.status_code == 200
     data = res.json()
     assert data["packaging"]["tier_loading_factor"] == 1.10
+
+
+def test_admin_config_endpoint_exposes_runtime_settings():
+    res = client.get("/api/v1/admin/config")
+    assert res.status_code == 200
+    data = res.json()
+    assert "global_constants" in data
+    assert "factors" in data
+    assert "POWER_RELATIVITIES" in data["factors"]
+
+
+def test_admin_config_can_persist_a_factor_update():
+    payload = {
+        "factors": {
+            "DRIVER_AGE_RELATIVITIES": {
+                "1. 18-24 years": 2.1891,
+                "2. 25-30 years": 1.1942,
+                "3. 31-40 years": 1.0000,
+                "4. 41-50 years": 1.1591,
+                "5. 51-60 years": 1.0543,
+                "6. 61-75 years": 1.0306,
+                "7. 76+ years": 1.1239
+            }
+        }
+    }
+    res = client.post("/api/v1/admin/config/factors/DRIVER_AGE_RELATIVITIES", json=payload["factors"]["DRIVER_AGE_RELATIVITIES"])
+    assert res.status_code == 200
+    data = res.json()
+    assert data["DRIVER_AGE_RELATIVITIES"]["1. 18-24 years"] == 2.1891

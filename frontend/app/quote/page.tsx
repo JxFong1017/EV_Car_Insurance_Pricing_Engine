@@ -40,6 +40,10 @@ export default function QuotePage() {
             </div>
             VoltVision Pricing Engine
           </div>
+          <div className="flex items-center gap-3 text-sm">
+            <a href="/" className="text-slate-600 hover:text-slate-900">Home</a>
+            <a href="/admin" className="rounded-full bg-emerald-50 px-3 py-1.5 font-medium text-emerald-700 hover:bg-emerald-100">Admin Metrics</a>
+          </div>
         </div>
       </header>
 

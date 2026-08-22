@@ -20,12 +20,19 @@ export default function LandingPage() {
             <p className="mt-6 text-lg leading-8 text-emerald-50 max-w-2xl mx-auto">
               Poisson-Gamma GLM actuarial pricing for Malaysian electric vehicles. CAS-standard, MFRS 17 compliant.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-500 text-lg h-14 px-8 rounded-full shadow-premium transition-transform hover:scale-105">
-                <Link href="/quote">
-                  Calculate Your Premium <ChevronRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+            <div className="mt-10 flex items-center justify-center gap-x-6 flex-wrap">
+              <Link
+                href="/quote"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-8 py-4 text-lg font-medium text-white shadow-premium transition-transform hover:scale-105 hover:bg-emerald-500"
+              >
+                Calculate Your Premium <ChevronRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                href="/admin"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-8 py-4 text-lg font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+              >
+                Metrics Admin
+              </Link>
             </div>
             
             <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 pt-8 border-t border-white/10 text-emerald-100 max-w-4xl mx-auto">

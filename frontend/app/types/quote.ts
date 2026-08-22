@@ -102,3 +102,8 @@ export interface CatalogOptions {
   states: string[];
   soh_cats: string[];
 }
+
+export interface AdminConfig {
+  global_constants: Record<string, number>;
+  factors: Record<string, Record<string, number>>;
+}

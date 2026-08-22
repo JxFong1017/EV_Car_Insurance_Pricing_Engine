@@ -8,8 +8,8 @@ def base_quote():
         sum_insured=100000,
         power_cat="1. Urban / Commuter (<150 kW)",
         capacity_cat="1. Standard Pack (<60 kWh)",
-        clearance_cat="2. Sedan / Hatchback (140-170mm)",
-        brand_cat="1. Mass Market / Standard (BYD, Chery, GWM, Neta, MG)",
+        clearance_cat="2. Sedan (Baseline) (128-149mm)",
+        brand_cat="1. Mass Market / Domestic (BYD, Chery, Proton, GWM, Neta, MG)",
         adas_cat="1. Standard / Level 0-1 (No Active AEB)",
         age_cat="1. 18-24 years",
         ncd_str="0%",
@@ -21,7 +21,7 @@ def base_quote():
 
 def test_partial_loss_component(base_quote):
     res = calculate_severity(base_quote)
-    assert res.partial_loss_component == 4425.0
+    assert res.partial_loss_component == 5200.0
 
 def test_total_loss_scales(base_quote):
     res1 = calculate_severity(base_quote)

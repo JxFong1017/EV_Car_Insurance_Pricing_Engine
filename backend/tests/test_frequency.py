@@ -8,8 +8,8 @@ def base_quote():
         sum_insured=100000,
         power_cat="1. Urban / Commuter (<150 kW)",
         capacity_cat="1. Standard Pack (<60 kWh)",
-        clearance_cat="2. Sedan / Hatchback (140-170mm)",
-        brand_cat="1. Mass Market / Standard (BYD, Chery, GWM, Neta, MG)",
+        clearance_cat="2. Sedan (Baseline) (128-149mm)",
+        brand_cat="1. Mass Market / Domestic (BYD, Chery, Proton, GWM, Neta, MG)",
         adas_cat="1. Standard / Level 0-1 (No Active AEB)",
         age_cat="1. 18-24 years",
         ncd_str="0%",
@@ -21,18 +21,18 @@ def base_quote():
 
 def test_base_case(base_quote):
     res = calculate_frequency(base_quote)
-    expected = 0.0841 * 1.1612 * 1.0 * 1.0 * 1.0 * 1.0
+    expected = 0.0841 * 1.1938 * 2.1891 * 1.0 * 1.0 * 1.0
     assert abs(res.exp_frequency - expected) < 1e-6
 
 def test_power_categories(base_quote):
     base_quote.power_cat = "2. Mid-Range Performance (150-250 kW)"
     res = calculate_frequency(base_quote)
-    expected = 0.0841 * 1.2880 * 1.0 * 1.0 * 1.0 * 1.0
+    expected = 0.0841 * 1.2969 * 2.1891 * 1.0 * 1.0 * 1.0
     assert abs(res.exp_frequency - expected) < 1e-6
 
     base_quote.power_cat = "3. High-Performance AWD (>250 kW)"
     res = calculate_frequency(base_quote)
-    expected = 0.0841 * 1.4232 * 1.0 * 1.0 * 1.0 * 1.0
+    expected = 0.0841 * 1.3673 * 2.1891 * 1.0 * 1.0 * 1.0
     assert abs(res.exp_frequency - expected) < 1e-6
 
 def test_adas_discount(base_quote):

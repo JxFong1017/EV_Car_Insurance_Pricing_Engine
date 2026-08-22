@@ -34,3 +34,38 @@ export async function fetchPlatePreset(plate: string): Promise<{ found: boolean;
   const res = await fetch(`${API_BASE}/api/v1/catalog/plate/${encodeURIComponent(plate)}`);
   return res.json();
 }
+
+export async function fetchAdminConfig(): Promise<import('@/app/types/quote').AdminConfig> {
+  const res = await fetch(`${API_BASE}/api/v1/admin/config`);
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail || 'Failed to fetch admin config');
+  }
+  return res.json();
+}
+
+export async function saveAdminGlobalConfig(payload: Record<string, number>): Promise<import('@/app/types/quote').AdminConfig> {
+  const res = await fetch(`${API_BASE}/api/v1/admin/config/global`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail || 'Failed to save global config');
+  }
+  return res.json();
+}
+
+export async function saveFactorConfig(factorName: string, payload: Record<string, number>): Promise<{ [key: string]: Record<string, number> }> {
+  const res = await fetch(`${API_BASE}/api/v1/admin/config/factors/${encodeURIComponent(factorName)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail || 'Failed to save factor config');
+  }
+  return res.json();
+}

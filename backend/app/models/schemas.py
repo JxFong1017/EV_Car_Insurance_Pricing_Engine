@@ -3,17 +3,17 @@ from typing import Literal
 
 class QuoteRequest(BaseModel):
     sum_insured: float = Field(..., ge=50000, le=2000000)
-    power_cat: str
-    capacity_cat: str
-    clearance_cat: str
-    brand_cat: str
-    adas_cat: str
-    age_cat: str
-    ncd_str: str
-    veh_age_cat: str
-    state: str
-    soh_cat: str
-    tier_mode: Literal["1", "2", "3", "basic"]
+    power_cat: str = "1. Urban / Commuter (<150 kW)"
+    capacity_cat: str = "1. Standard Pack (<60 kWh)"
+    clearance_cat: str = "2. Sedan (Baseline) (128-149mm)"
+    brand_cat: str = "1. Mass Market / Domestic (BYD, Chery, Proton, GWM, Neta, MG)"
+    adas_cat: str = "1. Standard / Level 0-1 (No Active AEB)"
+    age_cat: str = "3. 31-40 years"
+    ncd_str: str = "0%"
+    veh_age_cat: str = "1. 0-1 years"
+    state: str = "Kuala Lumpur"
+    soh_cat: str = "2. Standard Health (70-85% SoH)"
+    tier_mode: Literal["1", "2", "3", "basic"] = "basic"
     selected_riders: list[str] = Field(default_factory=list)
     smart_grid_enrolled: bool = False
     model_name: str = "Custom Configuration"
