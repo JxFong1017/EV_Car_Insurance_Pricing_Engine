@@ -65,6 +65,9 @@ export function ManualFactorForm({ form, updateField, options }: Props) {
           <Select label="Statutory NCD %" value={form.ncd_str} onChange={e => updateField('ncd_str', e.target.value)}>
             {options.ncd_rates.map(o => <option key={o} value={o}>{o}</option>)}
           </Select>
+          <Select label="Driving Score (Telematics)" value={form.telematics_cat} onChange={e => updateField('telematics_cat', e.target.value)} className="md:col-span-2">
+            {options.telematics_cats.map(o => <option key={o} value={o}>{o}</option>)}
+          </Select>
         </div>
       </div>
 

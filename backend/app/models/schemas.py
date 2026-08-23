@@ -13,6 +13,7 @@ class QuoteRequest(BaseModel):
     veh_age_cat: str = "1. 0-1 years"
     state: str = "Kuala Lumpur"
     soh_cat: str = "2. Standard Health (70-85% SoH)"
+    telematics_cat: str = "2. Tier 2: Standard Commuter (Opt-Out / Score < 0.5)"
     tier_mode: Literal["1", "2", "3", "basic"] = "basic"
     selected_riders: list[str] = Field(default_factory=list)
     smart_grid_enrolled: bool = False

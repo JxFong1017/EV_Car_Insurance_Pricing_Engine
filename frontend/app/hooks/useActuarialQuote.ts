@@ -17,6 +17,7 @@ const DEFAULT_FORM: QuoteRequest = {
   veh_age_cat: '1. 0-1 years',
   state: 'Kuala Lumpur',
   soh_cat: '2. Base (70-85% SoH)',
+  telematics_cat: '2. Tier 2: Standard Commuter (Opt-Out / Score < 0.5)',
   tier_mode: 'basic',
   selected_riders: [],
   smart_grid_enrolled: false,

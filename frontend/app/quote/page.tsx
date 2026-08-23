@@ -55,7 +55,7 @@ export default function QuotePage() {
               <ModeSwitcher mode={inputMode} onChange={setInputMode} />
               <div className="mt-6">
                 {inputMode === 'manual' && <ManualFactorForm form={form} updateField={updateField} options={options} />}
-                {inputMode === 'auto' && <AutoMapSelector form={form} models={models} applyEVModel={applyEVModel} updateField={updateField} />}
+                {inputMode === 'auto' && <AutoMapSelector form={form} models={models} options={options} applyEVModel={applyEVModel} updateField={updateField} />}
                 {inputMode === 'hybrid' && <HybridSelector form={form} models={models} options={options} applyEVModel={applyEVModel} updateField={updateField} />}
               </div>
             </section>

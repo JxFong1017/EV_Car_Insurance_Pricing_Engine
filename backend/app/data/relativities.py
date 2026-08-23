@@ -49,6 +49,12 @@ BATTERY_CAPACITY_RELATIVITIES = {
     "3. High-Capacity Pack (>80 kWh)": 1.2500,
 }
 
+TELEMATICS_RELATIVITIES = {
+    "1. Tier 1: Safe Edge EV Driver (Score >= 0.5)": 0.8800,
+    "2. Tier 2: Standard Commuter (Opt-Out / Score < 0.5)": 1.0000,
+    "3. Tier 3: High-Risk Aggressive (Score < 0.2)": 1.1000,
+}
+
 FLOOD_TERRITORY_RELATIVITIES = {
     "Pahang": 1.1589,
     "Terengganu": 1.1303,

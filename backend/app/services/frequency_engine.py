@@ -32,6 +32,7 @@ def calculate_frequency(inputs: QuoteRequest) -> FrequencyBreakdown:
         ("VEHICLE_AGE_RELATIVITIES", inputs.veh_age_cat, "veh_age_cat"),
         ("ADAS_RELATIVITIES", inputs.adas_cat, "adas_cat"),
         ("BRAND_RELATIVITIES", inputs.brand_cat, "brand_cat"),
+        ("TELEMATICS_RELATIVITIES", inputs.telematics_cat, "telematics_cat"),
     ]
 
     factors = []

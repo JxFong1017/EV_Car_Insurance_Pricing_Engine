@@ -1,17 +1,18 @@
 'use client';
 import { useState } from 'react';
-import { QuoteRequest, EVModel } from '@/app/types/quote';
+import { QuoteRequest, EVModel, CatalogOptions } from '@/app/types/quote';
 import { Select } from '@/app/components/ui/select';
 import { Badge } from '@/app/components/ui/badge';
 
 interface Props {
   form: QuoteRequest;
   models: EVModel[];
+  options: CatalogOptions | null;
   applyEVModel: (m: EVModel) => void;
   updateField: <K extends keyof QuoteRequest>(k: K, v: QuoteRequest[K]) => void;
 }
 
-export function AutoMapSelector({ form, models, applyEVModel, updateField }: Props) {
+export function AutoMapSelector({ form, models, options, applyEVModel, updateField }: Props) {
   const [ic, setIc] = useState('');
   const [plate, setPlate] = useState('');
   const [icStatus, setIcStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -243,6 +244,14 @@ export function AutoMapSelector({ form, models, applyEVModel, updateField }: Pro
           )}
         </div>
       </div>
+
+      {options && (
+        <div className="pt-6 border-t border-slate-200">
+          <Select label="Driving Score (Telematics Override)" value={form.telematics_cat} onChange={e => updateField('telematics_cat', e.target.value)}>
+            {options.telematics_cats.map(o => <option key={o} value={o}>{o}</option>)}
+          </Select>
+        </div>
+      )}
     </div>
   );
 }

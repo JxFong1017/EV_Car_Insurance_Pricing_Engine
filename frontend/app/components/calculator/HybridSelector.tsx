@@ -64,8 +64,11 @@ export function HybridSelector({ form, models, options, applyEVModel, updateFiel
         <Select label="Malaysian Territory/State" value={form.state} onChange={e => updateField('state', e.target.value)}>
           {options.states.map(o => <option key={o} value={o}>{o}</option>)}
         </Select>
-        <Select label="Battery State of Health" value={form.soh_cat} onChange={e => updateField('soh_cat', e.target.value)} className="md:col-span-2">
+        <Select label="Battery State of Health" value={form.soh_cat} onChange={e => updateField('soh_cat', e.target.value)}>
           {options.soh_cats.map(o => <option key={o} value={o}>{o}</option>)}
+        </Select>
+        <Select label="Driving Score (Telematics)" value={form.telematics_cat} onChange={e => updateField('telematics_cat', e.target.value)} className="md:col-span-2">
+          {options.telematics_cats.map(o => <option key={o} value={o}>{o}</option>)}
         </Select>
       </div>
     </div>

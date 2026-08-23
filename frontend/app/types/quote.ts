@@ -14,6 +14,7 @@ export interface QuoteRequest {
   veh_age_cat: string;
   state: string;
   soh_cat: string;
+  telematics_cat: string;
   tier_mode: TierMode;
   selected_riders: RiderId[];
   smart_grid_enrolled: boolean;
@@ -101,6 +102,7 @@ export interface CatalogOptions {
   veh_age_cats: string[];
   states: string[];
   soh_cats: string[];
+  telematics_cats: string[];
 }
 
 export interface AdminConfig {
