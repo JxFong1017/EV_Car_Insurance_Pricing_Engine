@@ -48,6 +48,13 @@ DEFAULT_FACTORS = {
         "3. Tech Premium & New Luxury (Tesla, Volvo, Zeekr, XPeng, Lotus)": 1.6167,
         "4. Continental Luxury & Sport (Audi, BMW, Mercedes, Porsche, MINI, smart)": 1.7922,
     },
+
+    "TELEMATICS_RELATIVITIES": {
+        "1. Tier 1: Safe Edge EV Driver (Score >= 0.5)": 0.8800,
+        "2. Tier 2: Standard Commuter (Opt-Out / Score < 0.5)": 1.0000,
+        "3. Tier 3: High-Risk Aggressive (Score < 0.2)": 1.1000,
+    },
+
     "BATTERY_CAPACITY_RELATIVITIES": {
         "1. Standard Pack (<60 kWh)": 1.0000,
         "2. Mid-Size Pack (60-80 kWh)": 1.1000,
