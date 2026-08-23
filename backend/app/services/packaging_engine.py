@@ -53,21 +53,23 @@ def calculate_packaging(
     rider_items: list[dict] = []
 
     def apply_ecosystem_addons() -> None:
-        nonlocal final_base_gross, package_premium
+        nonlocal package_premium
         if "ncd_shield" in selected_riders:
-            final_base_gross *= 1.1000
+            ncd_prem = base_motor_gross * 0.1000
+            package_premium += ncd_prem
             rider_items.append({
                 "label": RIDER_CONFIG["ncd_shield"]["label"],
-                "cost": "+10% Base Motor Surcharge",
-                "amount": round(base_motor_gross * 0.10, 2),
+                "cost": "+10% Base Gross",
+                "amount": round(ncd_prem, 2),
             })
 
         if "cyber" in selected_riders:
-            final_base_gross *= 1.1000
+            cyb_prem = base_motor_gross * 0.1000
+            package_premium += cyb_prem
             rider_items.append({
                 "label": RIDER_CONFIG["cyber"]["label"],
-                "cost": "+10% Base Motor Surcharge",
-                "amount": round(base_motor_gross * 0.10, 2),
+                "cost": "+10% Base Gross",
+                "amount": round(cyb_prem, 2),
             })
 
         if "mobility" in selected_riders:
