@@ -33,7 +33,7 @@ VEHICLE_AGE_RELATIVITIES = {
 
 ADAS_RELATIVITIES = {
     "1. Standard / Level 0-1 (No Active AEB)": 1.0000,
-    "2. Level 2 Active ADAS (AEB + LKA Equipped)": 0.8270,
+    "2. Level 2 Active ADAS (AEB + LKA Equipped)": 0.7620,
 }
 
 BRAND_RELATIVITIES = {
