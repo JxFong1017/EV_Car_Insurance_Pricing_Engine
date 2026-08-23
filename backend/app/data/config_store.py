@@ -8,9 +8,9 @@ DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "runtime_config.json"
 TMP_CONFIG_PATH = Path(tempfile.gettempdir()) / "voltvision_runtime_config.json"
 
 DEFAULT_GLOBAL_CONSTANTS = {
-    "BASE_FREQUENCY_LAMBDA0": 0.0841,
+    "BASE_FREQUENCY_LAMBDA0": 0.0587,
     "PARTIAL_REPAIR_M_PARTIAL": 5200.00,
-    "TOTAL_LOSS_PROB_P_TL": 0.0180,
+    "TOTAL_LOSS_PROB_P_TL": 0.1012,
     "RISK_MARGIN": 0.2000,
     "POLICY_ADMIN_FEE": 50.00,
     "AUDITED_UW_DENOMINATOR": 0.4190,
