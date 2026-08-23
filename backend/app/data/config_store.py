@@ -1,8 +1,11 @@
 import json
+import os
+import tempfile
 from copy import deepcopy
 from pathlib import Path
 
-CONFIG_PATH = Path(__file__).resolve().parent / "runtime_config.json"
+DEFAULT_CONFIG_PATH = Path(__file__).resolve().parent / "runtime_config.json"
+TMP_CONFIG_PATH = Path(tempfile.gettempdir()) / "voltvision_runtime_config.json"
 
 DEFAULT_GLOBAL_CONSTANTS = {
     "BASE_FREQUENCY_LAMBDA0": 0.0841,
@@ -94,24 +97,56 @@ DEFAULT_CONFIG = {
     "factors": DEFAULT_FACTORS,
 }
 
+_memory_config = None
+
 
 def _deepcopy_default_config():
     return deepcopy(DEFAULT_CONFIG)
 
 
+def _get_active_path() -> Path:
+    # If in serverless (e.g. VERCEL), use TMP_CONFIG_PATH
+    if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+        return TMP_CONFIG_PATH
+    return DEFAULT_CONFIG_PATH
+
+
 def _ensure_config_file():
-    if not CONFIG_PATH.exists():
-        CONFIG_PATH.write_text(json.dumps(_deepcopy_default_config(), indent=2), encoding="utf-8")
-    return CONFIG_PATH
+    path = _get_active_path()
+    if not path.exists():
+        if DEFAULT_CONFIG_PATH.exists() and path != DEFAULT_CONFIG_PATH:
+            try:
+                path.write_text(DEFAULT_CONFIG_PATH.read_text(encoding="utf-8"), encoding="utf-8")
+                return path
+            except OSError:
+                pass
+        try:
+            path.write_text(json.dumps(_deepcopy_default_config(), indent=2), encoding="utf-8")
+        except OSError:
+            pass
+    return path
 
 
 def get_runtime_config():
+    global _memory_config
+    if _memory_config is not None:
+        return deepcopy(_memory_config)
+
     path = _ensure_config_file()
-    try:
-        with path.open("r", encoding="utf-8") as handle:
-            config = json.load(handle)
-    except json.JSONDecodeError:
-        config = _deepcopy_default_config()
+    config = None
+    if path.exists():
+        try:
+            with path.open("r", encoding="utf-8") as handle:
+                config = json.load(handle)
+        except (json.JSONDecodeError, OSError):
+            config = None
+
+    if config is None and DEFAULT_CONFIG_PATH.exists():
+        try:
+            with DEFAULT_CONFIG_PATH.open("r", encoding="utf-8") as handle:
+                config = json.load(handle)
+        except (json.JSONDecodeError, OSError):
+            config = None
 
     merged = _deepcopy_default_config()
     if isinstance(config, dict):
@@ -119,16 +154,29 @@ def get_runtime_config():
         for key, value in config.get("factors", {}).items():
             if isinstance(value, dict):
                 merged["factors"][key] = value
+    _memory_config = deepcopy(merged)
     return merged
 
 
 def save_runtime_config(config):
+    global _memory_config
     validated = _deepcopy_default_config()
     validated["global_constants"].update(config.get("global_constants", {}))
     for factor_name, factor_value in config.get("factors", {}).items():
         if isinstance(factor_value, dict):
             validated["factors"][factor_name] = factor_value
-    CONFIG_PATH.write_text(json.dumps(validated, indent=2), encoding="utf-8")
+
+    _memory_config = deepcopy(validated)
+
+    # Try saving to active path, then fallback to /tmp
+    path = _get_active_path()
+    try:
+        path.write_text(json.dumps(validated, indent=2), encoding="utf-8")
+    except OSError:
+        try:
+            TMP_CONFIG_PATH.write_text(json.dumps(validated, indent=2), encoding="utf-8")
+        except OSError:
+            pass
     return validated
 
 
@@ -161,5 +209,15 @@ def set_factor_dict(name, factor_dict):
 
 
 def reset_runtime_config():
-    CONFIG_PATH.write_text(json.dumps(_deepcopy_default_config(), indent=2), encoding="utf-8")
+    global _memory_config
+    _memory_config = _deepcopy_default_config()
+    path = _get_active_path()
+    try:
+        path.write_text(json.dumps(_memory_config, indent=2), encoding="utf-8")
+    except OSError:
+        try:
+            TMP_CONFIG_PATH.write_text(json.dumps(_memory_config, indent=2), encoding="utf-8")
+        except OSError:
+            pass
     return _deepcopy_default_config()
+

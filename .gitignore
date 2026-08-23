@@ -14,9 +14,10 @@ env/
 *.env
 .pytest_cache/
 
-# Node.js
+# Node.js & Vercel
 node_modules/
 .next/
+.vercel
 out/
 .env.local
 .env.development.local
@@ -42,3 +43,5 @@ Thumbs.db
 htmlcov/
 .coverage
 coverage.xml
+
+.vercel

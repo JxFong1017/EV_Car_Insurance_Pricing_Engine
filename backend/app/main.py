@@ -34,6 +34,9 @@ app.add_middleware(
 app.include_router(api_router, prefix="/api/v1")
 
 
+@app.get("/", tags=["Health"])
+@app.get("/api", tags=["Health"])
 @app.get("/health", tags=["Health"])
 def health_check():
     return {"status": "ok", "service": "VoltVision EV Pricing Engine", "version": "1.0.0"}
+

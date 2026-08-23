@@ -49,6 +49,24 @@ npm run dev
 
 App available at: http://localhost:3000
 
+### 3. Deploy to Vercel (One-Click / CLI)
+
+The project is pre-configured for full-stack Vercel deployment (Next.js frontend + FastAPI backend on the same domain).
+
+#### Option A: Deploy with Vercel CLI
+```bash
+# In the root directory:
+npx vercel
+# To deploy to production:
+npx vercel --prod
+```
+
+#### Option B: Deploy via GitHub + Vercel Dashboard
+1. Push your repository to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repository.
+3. Keep default settings (Vercel automatically detects Next.js and `vercel.json`).
+4. Click **Deploy**.
+
 ---
 
 ## API Reference
