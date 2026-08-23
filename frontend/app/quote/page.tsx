@@ -66,11 +66,9 @@ export default function QuotePage() {
                 tierMode={form.tier_mode} 
                 setTierMode={setTierMode}
               />
-              {form.tier_mode === 'basic' && (
-                <div className="mt-8 pt-8 border-t border-slate-100">
-                  <RiderToggles selectedRiders={form.selected_riders} toggleRider={toggleRider} />
-                </div>
-              )}
+              <div className="mt-8 pt-8 border-t border-slate-100">
+                <RiderToggles selectedRiders={form.selected_riders} toggleRider={toggleRider} />
+              </div>
             </section>
             
             {quote && (
