@@ -5,7 +5,7 @@
     "TOTAL_LOSS_PROB_P_TL": 0.018,
     "RISK_MARGIN": 0.2,
     "POLICY_ADMIN_FEE": 50,
-    "AUDITED_UW_DENOMINATOR": 0.419
+    "AUDITED_UW_DENOMINATOR": 0.5886
   },
   "factors": {
     "POWER_RELATIVITIES": {
@@ -16,7 +16,7 @@
     "DRIVER_AGE_RELATIVITIES": {
       "1. 18-24 years": 2.1891,
       "2. 25-30 years": 1.1942,
-      "3. 31-40 years": 1.0,
+      "3. 31-40 years": 1,
       "4. 41-50 years": 1.1591,
       "5. 51-60 years": 1.0543,
       "6. 61-75 years": 1.0306,
