@@ -18,7 +18,7 @@ export default function LandingPage() {
               EV Commercial Pricing Engine
             </p>
             <p className="mt-6 text-lg leading-8 text-emerald-50 max-w-2xl mx-auto">
-              Poisson-Gamma GLM actuarial pricing for Malaysian electric vehicles. CAS-standard, MFRS 17 compliant.
+              Poisson-Gamma GLM actuarial pricing for Malaysian electric vehicles.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 flex-wrap">
               <Link
