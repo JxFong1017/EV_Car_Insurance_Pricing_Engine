@@ -65,8 +65,6 @@ export default function QuotePage() {
               <ProductTierCards 
                 tierMode={form.tier_mode} 
                 setTierMode={setTierMode}
-                smartGridEnrolled={form.smart_grid_enrolled}
-                setSmartGrid={(v) => updateField('smart_grid_enrolled', v)}
               />
               {form.tier_mode === 'basic' && (
                 <div className="mt-8 pt-8 border-t border-slate-100">

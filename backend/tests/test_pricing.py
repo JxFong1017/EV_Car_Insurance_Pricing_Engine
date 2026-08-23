@@ -44,7 +44,8 @@ def test_tier1_smart_grid():
     res = client.post("/api/v1/quote", json=payload)
     assert res.status_code == 200
     data = res.json()
-    assert data["packaging"]["smart_grid_discount"] == 0.95
+    assert data["packaging"]["smart_grid_discount"] == 1.0
+    assert data["packaging"]["package_premium"] == 15.0
 
 def test_basic_mode_ncd_shield():
     payload = get_valid_payload()
@@ -54,6 +55,16 @@ def test_basic_mode_ncd_shield():
     assert res.status_code == 200
     data = res.json()
     assert data["packaging"]["tier_loading_factor"] == 1.10
+
+
+def test_basic_mode_mobility_is_flat_223_92():
+    payload = get_valid_payload()
+    payload["tier_mode"] = "basic"
+    payload["selected_riders"] = ["mobility"]
+    res = client.post("/api/v1/quote", json=payload)
+    assert res.status_code == 200
+    data = res.json()
+    assert data["packaging"]["package_premium"] == 223.92
 
 
 def test_admin_config_endpoint_exposes_runtime_settings():

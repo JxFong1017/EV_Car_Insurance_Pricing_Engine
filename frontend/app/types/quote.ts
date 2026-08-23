@@ -1,6 +1,6 @@
 export type TierMode = '1' | '2' | '3' | 'basic';
 
-export type RiderId = 'wall_charger' | 'cable' | 'mobility' | 'flood' | 'ncd_shield' | 'cyber';
+export type RiderId = 'mobility' | 'ncd_shield' | 'cyber';
 
 export interface QuoteRequest {
   sum_insured: number;

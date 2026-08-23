@@ -6,45 +6,42 @@ import { TierMode } from '@/app/types/quote';
 interface Props {
   tierMode: TierMode;
   setTierMode: (mode: TierMode) => void;
-  smartGridEnrolled: boolean;
-  setSmartGrid: (v: boolean) => void;
 }
 
-export function ProductTierCards({ tierMode, setTierMode, smartGridEnrolled, setSmartGrid }: Props) {
+export function ProductTierCards({ tierMode, setTierMode }: Props) {
   const tiers = [
     {
       id: '1' as TierMode,
-      name: 'Tier 1 — Condo Dweller',
-      price: '+ RM 95',
+      name: 'Tier 1 — EV Essential (Condo Segment)',
+      price: '+ RM 15.00',
       icon: Home,
       color: 'text-sky-500',
       bg: 'bg-sky-50',
       border: 'border-sky-200',
       activeBorder: 'border-sky-500 ring-1 ring-sky-500',
-      features: ['Cable Theft Cover', 'Public Charger TPL', '24hr Battery Towing'],
-      hasSmartGrid: true,
+      features: ['Portable Charging Cable (RM 5,000 SI)', 'Public Charging Inconvenience (RM 5,000 SI)', '24-Hour Battery Towing (Nearest EV Charger)'],
     },
     {
       id: '2' as TierMode,
-      name: 'Tier 2 — Landed Homeowner',
-      price: '+ RM 150',
+      name: 'Tier 2 — EV Advanced (Landed Segment)',
+      price: '+ RM 93.00',
       icon: Building,
       color: 'text-violet-500',
       bg: 'bg-violet-50',
       border: 'border-violet-200',
       activeBorder: 'border-violet-500 ring-1 ring-violet-500',
-      features: ['Tier 1 Benefits', 'Wall Charger Physical', 'Wall Charger Liability', 'Collateral Fire'],
+      features: ['All Tier 1 Public Charging Benefits', 'EV Home Wall Charger Cover (RM 20,000 SI)', 'Wall Charger Personal Liability (RM 50,000 SI)', 'Cleaning Cost Allowance (RM 3,000)', 'Collateral Home Fire Damage Cover (RM 20,000 SI)'],
     },
     {
       id: '3' as TierMode,
-      name: 'Tier 3 — EV Pluss',
-      price: '+10% + Mobility',
+      name: 'Tier 3 — EV 365 Premium',
+      price: '+ RM 150.00',
       icon: Zap,
       color: 'text-emerald-500',
       bg: 'bg-emerald-50',
       border: 'border-emerald-200',
       activeBorder: 'border-emerald-500 ring-1 ring-emerald-500',
-      features: ['Full ecosystem', 'NCD Shield', 'Cyber V2G', 'Downtime Mobility', 'Pest & Tire Hazard'],
+      features: ['Home Wall Charger Damage (RM 12,000 SI)', 'Wall Charger Personal Liability (RM 50,000 SI)', 'Compassionate Home Damage Cover (RM 5,000 SI)', 'Portable Electric Charger Cover (RM 2,000 SI)', 'Compassionate Public Charging Cover (RM 5,000 SI)', '24-Hour Towing (Unlimited Mileage)'],
       badge: 'BEST VALUE',
     },
     {
@@ -99,19 +96,6 @@ export function ProductTierCards({ tierMode, setTierMode, smartGridEnrolled, set
                   ))}
                 </ul>
               </button>
-              {t.hasSmartGrid && isActive && (
-                <div className="mt-3 p-3 rounded-lg bg-sky-50 border border-sky-100 animate-slide-up">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={smartGridEnrolled}
-                      onChange={e => setSmartGrid(e.target.checked)}
-                      className="rounded text-sky-500 focus:ring-sky-500"
-                    />
-                    <span className="text-sm font-medium text-sky-900">Smart Grid Enrolled (-5%)</span>
-                  </label>
-                </div>
-              )}
             </div>
           );
         })}

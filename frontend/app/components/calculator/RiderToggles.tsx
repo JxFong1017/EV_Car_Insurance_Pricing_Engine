@@ -1,7 +1,7 @@
 'use client';
 import { RiderId } from '@/app/types/quote';
 import { cn } from '@/app/lib/utils';
-import { Plug, Link, Bus, Waves, ShieldAlert, Lock } from 'lucide-react';
+import { Bus, ShieldAlert, Lock } from 'lucide-react';
 
 interface Props {
   selectedRiders: RiderId[];
@@ -10,12 +10,9 @@ interface Props {
 
 export function RiderToggles({ selectedRiders, toggleRider }: Props) {
   const riders = [
-    { id: 'wall_charger' as RiderId, name: 'Wall Charger Cover', price: 'RM 33.80', icon: Plug, desc: 'Damage or theft of home wallbox' },
-    { id: 'cable' as RiderId, name: 'Cable Theft Cover', price: 'RM 150.00', icon: Link, desc: 'Public charging cable replacement' },
-    { id: 'mobility' as RiderId, name: 'Downtime Mobility', price: 'RM 341.77', icon: Bus, desc: 'Rental car for battery repair downtime' },
-    { id: 'flood' as RiderId, name: 'Flood Cash Allowance', price: 'RM 42.48', icon: Waves, desc: 'Lump sum on flood total loss' },
-    { id: 'ncd_shield' as RiderId, name: 'NCD Shield', price: '+10% loading', icon: ShieldAlert, desc: 'Protects NCD for 1 at-fault claim' },
-    { id: 'cyber' as RiderId, name: 'Cyber V2G Rider', price: '+10% loading', icon: Lock, desc: 'Hacking & remote bricking protection' },
+    { id: 'ncd_shield' as RiderId, name: 'NCD Shield / Step-Down Protector', price: '+10% base gross', icon: ShieldAlert, desc: 'Applies a 1.1000 base multiplier' },
+    { id: 'cyber' as RiderId, name: 'Cyber Security V2G Rider', price: '+10% base gross', icon: Lock, desc: 'Applies a 1.1000 base multiplier' },
+    { id: 'mobility' as RiderId, name: 'Battery Downtime Mobility Allowance', price: 'RM 223.92', icon: Bus, desc: 'Flat premium (RM 4,000 limit)' },
   ];
 
   return (
