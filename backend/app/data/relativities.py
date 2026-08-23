@@ -50,35 +50,35 @@ BATTERY_CAPACITY_RELATIVITIES = {
 }
 
 FLOOD_TERRITORY_RELATIVITIES = {
-    "Kuala Lumpur": 0.9600,
-    "Selangor": 1.0200,
-    "Terengganu": 1.2800,
-    "Kelantan": 1.3500,
-    "Pahang": 1.2200,
-    "Johor": 1.0800,
-    "Penang": 0.9800,
+    "Pahang": 1.1589,
+    "Terengganu": 1.1303,
+    "Johor": 1.1033,
+    "Kelantan": 1.1033,
+    "Sabah": 1.0435,
+    "Sarawak": 0.9963,
+    "Kedah": 0.9753,
+    "Melaka": 0.9698,
+    "Negeri Sembilan": 0.9651,
+    "Selangor": 0.9651,
+    "Kuala Lumpur": 0.9573,
+    "Penang": 0.9573,
+    "Perlis": 0.9634,
     "Perak": 1.0400,
-    "Melaka": 0.9700,
-    "Negeri Sembilan": 0.9900,
-    "Kedah": 1.0600,
-    "Perlis": 1.0300,
-    "Sabah": 1.1200,
-    "Sarawak": 1.1400,
     "Putrajaya": 0.9500,
     "Labuan": 0.9600,
 }
 
 GROUND_CLEARANCE_MULTIPLIERS = {
-    "1. Sports Car / Ultra-Low EV (<=127mm)": 1.0500,
+    "1. Sports Car / Ultra-Low EV (<=127mm)": 1.0458,
     "2. Sedan (Baseline) (128-149mm)": 1.0000,
-    "3. Minivan / MPV (150-169mm)": 0.9600,
-    "4. SUV / Off-Roader (>=170mm)": 0.8600,
+    "3. Minivan / MPV (150-169mm)": 0.9620,
+    "4. SUV / Off-Roader (>=170mm)": 0.8591,
 }
 
 BATTERY_SOH_RELATIVITIES = {
     "1. Optimal Health (>85% SoH)": 0.9000,
-    "2. Standard Health (70-85% SoH)": 1.0000,
-    "3. Degraded Health (<70% SoH / High Resistance)": 1.3000,
+    "2. Base (70-85% SoH)": 1.0000,
+    "3. Degraded (<70% SoH)": 1.3000,
 }
 
 STATUTORY_NCD_RATES = {

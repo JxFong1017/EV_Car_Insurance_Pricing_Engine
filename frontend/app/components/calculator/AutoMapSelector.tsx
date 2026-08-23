@@ -68,7 +68,7 @@ export function AutoMapSelector({ form, models, applyEVModel, updateField }: Pro
     if (cleaned === 'ABC1234') {
       updateField('state', 'Terengganu');
       updateField('veh_age_cat', '3. 4-6 years');
-      updateField('soh_cat', '3. Degraded Health (<70% SoH / High Resistance)');
+      updateField('soh_cat', '3. Degraded (<70% SoH)');
       setVehicleLabel('Terengganu (High Flood Zone), 4-6 Years Old, Degraded SoH (<70%)');
       setPlateStatus('success');
       return;

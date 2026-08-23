@@ -16,7 +16,7 @@ const DEFAULT_FORM: QuoteRequest = {
   ncd_str: '0%',
   veh_age_cat: '1. 0-1 years',
   state: 'Kuala Lumpur',
-  soh_cat: '2. Standard Health (70-85% SoH)',
+  soh_cat: '2. Base (70-85% SoH)',
   tier_mode: 'basic',
   selected_riders: [],
   smart_grid_enrolled: false,
