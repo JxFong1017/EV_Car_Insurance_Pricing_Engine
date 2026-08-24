@@ -70,8 +70,8 @@ FLOOD_TERRITORY_RELATIVITIES = {
     "Penang": 0.9573,
     "Perlis": 0.9634,
     "Perak": 1.0400,
-    "Putrajaya": 0.9500,
-    "Labuan": 0.9600,
+    "Putrajaya": 0.9573,
+    "Labuan": 0.9573,
 }
 
 GROUND_CLEARANCE_MULTIPLIERS = {
