@@ -83,8 +83,8 @@ GROUND_CLEARANCE_MULTIPLIERS = {
 
 BATTERY_SOH_RELATIVITIES = {
     "1. Optimal Health (>85% SoH)": 0.9000,
-    "2. Base (70-85% SoH)": 1.0000,
-    "3. Degraded (<70% SoH)": 1.3000,
+    "2. Standard Health (70-85% SoH)": 1.0000,
+    "3. Degraded Health (<70% SoH / High Resistance)": 1.3000,
 }
 
 STATUTORY_NCD_RATES = {
