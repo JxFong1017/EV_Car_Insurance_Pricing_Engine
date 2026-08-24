@@ -50,7 +50,7 @@ def calculate_frequency(inputs: QuoteRequest) -> FrequencyBreakdown:
         multiplier_values.append(value)
 
     exp_freq = math.prod(multiplier_values)
-    claim_prob_pct = exp_freq * 100.0
+    claim_prob_pct = exp_freq
 
     return FrequencyBreakdown(
         base_lambda=BASE_FREQUENCY_LAMBDA0,
