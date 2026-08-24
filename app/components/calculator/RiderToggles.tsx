@@ -12,7 +12,7 @@ export function RiderToggles({ selectedRiders, toggleRider }: Props) {
   const riders = [
     { id: 'ncd_shield' as RiderId, name: 'NCD Shield / Step-Down Protector', price: '+10% base gross', icon: ShieldAlert, desc: 'Applies a 1.1000 base multiplier' },
     { id: 'cyber' as RiderId, name: 'Cyber Security V2G Rider', price: '+10% base gross', icon: Lock, desc: 'Applies a 1.1000 base multiplier' },
-    { id: 'mobility' as RiderId, name: 'Battery Downtime Mobility Allowance', price: 'RM 223.92', icon: Bus, desc: 'Flat premium (RM 4,000 limit)' },
+    { id: 'mobility' as RiderId, name: 'Battery Downtime Mobility Allowance', price: 'RM 358.14', icon: Bus, desc: 'Flat premium (RM 4,000 limit)' },
   ];
 
   return (

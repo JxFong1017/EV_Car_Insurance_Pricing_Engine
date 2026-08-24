@@ -3,7 +3,7 @@ from app.models.schemas import PackagingBreakdown
 RIDER_CONFIG = {
     "mobility": {
         "label": "Battery Downtime Mobility Allowance (RM 4,000 limit)",
-        "amount": 223.92,
+        "amount": 358.14,
     },
     "ncd_shield": {
         "label": "NCD Shield / 1-Tier Step-Down Protector",

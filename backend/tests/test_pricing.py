@@ -64,7 +64,7 @@ def test_basic_mode_mobility_is_flat_223_92():
     res = client.post("/api/v1/quote", json=payload)
     assert res.status_code == 200
     data = res.json()
-    assert data["packaging"]["package_premium"] == 223.92
+    assert data["packaging"]["package_premium"] == 358.14
 
 
 def test_admin_config_endpoint_exposes_runtime_settings():
