@@ -10,10 +10,10 @@ TMP_CONFIG_PATH = Path(tempfile.gettempdir()) / "voltvision_runtime_config.json"
 DEFAULT_GLOBAL_CONSTANTS = {
     "BASE_FREQUENCY_LAMBDA0": 0.0587,
     "PARTIAL_REPAIR_M_PARTIAL": 5200.00,
-    "TOTAL_LOSS_PROB_P_TL": 0.1012,
+    "TOTAL_LOSS_PROB_P_TL": 0.1020,
     "RISK_MARGIN": 0.2000,
     "POLICY_ADMIN_FEE": 50.00,
-    "AUDITED_UW_DENOMINATOR": 0.4190,
+    "AUDITED_UW_DENOMINATOR": 0.5886,
 }
 
 DEFAULT_FACTORS = {
@@ -79,10 +79,10 @@ DEFAULT_FACTORS = {
         "Labuan": 0.9573,
     },
     "GROUND_CLEARANCE_MULTIPLIERS": {
-        "1. Sports Car / Ultra-Low EV (<=127mm)": 1.0500,
+        "1. Sports Car / Ultra-Low EV (<=127mm)": 1.0458,
         "2. Sedan (Baseline) (128-149mm)": 1.0000,
-        "3. Minivan / MPV (150-169mm)": 0.9600,
-        "4. SUV / Off-Roader (>=170mm)": 0.8600,
+        "3. Minivan / MPV (150-169mm)": 0.9620,
+        "4. SUV / Off-Roader (>=170mm)": 0.8591,
     },
     "BATTERY_SOH_RELATIVITIES": {
         "1. Optimal Health (>85% SoH)": 0.9000,
