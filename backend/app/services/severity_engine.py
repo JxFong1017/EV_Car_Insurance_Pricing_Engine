@@ -23,9 +23,10 @@ def get_relativity(rel_dict, key, category_name):
 def calculate_severity(inputs: QuoteRequest) -> SeverityBreakdown:
     config = get_runtime_config()
     
-    partial_loss = config["global_constants"].get("PARTIAL_REPAIR_M_PARTIAL", 5200.00)
-    total_loss_prob = config["global_constants"].get("TOTAL_LOSS_PROB_P_TL", 0.1012)
+    base_partial_loss = config["global_constants"].get("PARTIAL_REPAIR_M_PARTIAL", 5200.00)
+    total_loss_prob = config["global_constants"].get("TOTAL_LOSS_PROB_P_TL", 0.1020)
     
+    partial_loss = (1 - total_loss_prob) * base_partial_loss
     total_loss = inputs.sum_insured * total_loss_prob
     base_severity = partial_loss + total_loss
     
